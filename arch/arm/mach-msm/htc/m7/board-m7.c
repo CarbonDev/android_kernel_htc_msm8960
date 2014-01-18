@@ -2507,10 +2507,10 @@ static struct platform_device mdm_m7_device = {
 	.resource	= mdm_resources,
 };
 
-static struct tsens_platform_data apq_tsens_pdata  = {
+static struct tsens_platform_data msm_tsens_pdata  = {
 		.tsens_factor		= 1000,
 		.hw_type		= APQ_8064,
-		.tsens_num_sensor	= 11,
+		.tsens_num_sensor	= 5,
 		.slope = {1176, 1176, 1154, 1176, 1111,
 			1132, 1132, 1199, 1132, 1199, 1132},
 };
@@ -4797,7 +4797,7 @@ static void __init m7_common_init(void)
 
 	msm_spm_init(msm_spm_data, ARRAY_SIZE(msm_spm_data));
 	msm_spm_l2_init(msm_spm_l2_data);
-	msm_tsens_early_init(&apq_tsens_pdata);
+	msm_tsens_early_init(&msm_tsens_pdata);
 	msm_thermal_init(&msm_thermal_pdata);
 
 	if (socinfo_init() < 0)
